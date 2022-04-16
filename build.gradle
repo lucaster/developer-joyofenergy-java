@@ -4,6 +4,7 @@ plugins {
     id 'eclipse'
     id 'org.springframework.boot' version '2.6.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'jacoco'
 }
 
 ext['log4j2.version'] = "2.17.0"         // mitigates various vulnerabilities in log4j
@@ -69,6 +70,11 @@ test {
     testLogging {
         events = ['FAILED', 'PASSED', 'SKIPPED', 'STANDARD_OUT']
     }
+
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
 }
 
 check {
