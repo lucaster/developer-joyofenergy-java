@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "6eb474d0-95e7-4921-a984-1ed87041b8d3",
+		"name": "joyofenergy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /readings/store",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"smartMeterId\": \"smart-meter-0\",\r\n  \"electricityReadings\": [\r\n    {\r\n      \"time\": 1606636800,\r\n      \"reading\": 1\r\n    },\r\n    {\r\n      \"time\": \"2050-11-29T08:00:00Z\",\r\n      \"reading\": 2\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/readings/store",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"readings",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /readings/read",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"smartMeterId\": \"smart-meter-0\",\r\n  \"electricityReadings\": [\r\n    {\r\n      \"time\": 1606636800,\r\n      \"reading\": 42.666\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/readings/read/:smart-meter-id",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"readings",
+						"read",
+						":smart-meter-id"
+					],
+					"variable": [
+						{
+							"key": "smart-meter-id",
+							"value": "smart-meter-0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "compare plans",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"smartMeterId\": \"smart-meter-0\",\r\n  \"electricityReadings\": [\r\n    {\r\n      \"time\": 1606636800,\r\n      \"reading\": 42.666\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/price-plans/compare-all/:smart-meter-id",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"price-plans",
+						"compare-all",
+						":smart-meter-id"
+					],
+					"variable": [
+						{
+							"key": "smart-meter-id",
+							"value": "smart-meter-0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recommend plans",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"smartMeterId\": \"smart-meter-0\",\r\n  \"electricityReadings\": [\r\n    {\r\n      \"time\": 1606636800,\r\n      \"reading\": 42.666\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/price-plans/recommend/:smart-meter-id?limit=1",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"price-plans",
+						"recommend",
+						":smart-meter-id"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "smart-meter-id",
+							"value": "smart-meter-0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
