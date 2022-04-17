@@ -14,6 +14,11 @@
 						"key": "Accept",
 						"value": "application/json",
 						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
 					}
 				],
 				"body": {
@@ -26,11 +31,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/readings/store",
+					"raw": "{{host}}:{{port}}/readings/store",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
+					"port": "{{port}}",
 					"path": [
 						"readings",
 						"store"
